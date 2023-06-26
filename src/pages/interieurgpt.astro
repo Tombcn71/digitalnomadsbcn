@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import interieurgpt from "assets/interieurgpt.png";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="interieurgpt">
+  <Container>
+    
+    <div class="grid md:grid-cols-1 gap-10 mx-auto max-w-screen-md  ">
+      {
+        publishedTeamMembers.map((teamMemberEntry) => (
+          <>
+            <div class="group">
+              <div class="border-1">
+                <Picture
+                  src={interieurgpt}
+                  alt={teamMemberEntry.data.avatar.alt}
+                  sizes="(max-width: 800px) 100vw, 400px"
+                  widths={[200, 400]}
+                  aspectRatio="16:9"
+                  background="#ffffff"
+                  fit="cover"
+                  position="center"
+                  class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl"
+                />
+              </div>
+
+              
+            </div>
+            <div class="flex flex-col gap-3 mx-auto max-w-4xl ">
+              <h2 class="font-bold text-3xl text-gray-800">
+interieurGPT - ai powered interior design application             </h2>
+              <p class="text-lg leading-relaxed text-slate-500">
+                It uses an ML model called ControlNet to generate variations of rooms. This application gives you the ability to upload a photo of any room, which will send it through this ML Model using a Next.js API route, and return your generated room. The ML Model is hosted on Replicate
+              </p>
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>

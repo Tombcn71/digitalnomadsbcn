@@ -3,34 +3,24 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { Icon } from "astro-icon";
 
 const menuitems = [
   {
-    title: "Features",
+    title: "Ai projects",
     path: "#",
     children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
+      { title: "interieurGPT", path: "/interieurgpt" },
+      { title: "Coming Soon", path: "#" },
+      
     ],
   },
-  {
-    title: "Pricing",
-    path: "/pricing",
-  },
+
   {
     title: "About",
     path: "/about",
   },
-  {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
-  },
+  
 ];
 ---
 
@@ -38,9 +28,10 @@ const menuitems = [
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
+        <a href="/" class="text-lg">
+          <span class="text-bold-800 flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M21.928 11.607c-.202-.488-.635-.605-.928-.633V8c0-1.103-.897-2-2-2h-6V4.61c.305-.274.5-.668.5-1.11a1.5 1.5 0 0 0-3 0c0 .442.195.836.5 1.11V6H5c-1.103 0-2 .897-2 2v2.997l-.082.006A1 1 0 0 0 1.99 12v2a1 1 0 0 0 1 1H3v5c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5a1 1 0 0 0 1-1v-1.938a1.006 1.006 0 0 0-.072-.455zM5 20V8h14l.001 3.996L19 12v2l.001.005l.001 5.995H5z"/><ellipse cx="8.5" cy="12" fill="currentColor" rx="1.5" ry="2"/><ellipse cx="15.5" cy="12" fill="currentColor" rx="1.5" ry="2"/><path fill="currentColor" d="M8 16h8v2H8z"/></svg>
+            DigitalnomadsBCN</span
           >
         </a>
         <div class="block lg:hidden">
@@ -74,15 +65,13 @@ const menuitems = [
           }
         </ul>
         <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href="#" style="muted" block size="md">Log in</Link>
-          <Link href="#" size="md" block>Sign up</Link>
+          <Link href="#" size="md" block>Work with me</Link>
         </div>
       </MenuItems>
     </Astronav>
     <div>
       <div class="hidden lg:flex items-center gap-4">
-        <a href="#">Log in</a>
-        <Link href="#" size="md">Sign up</Link>
+        <Link href="/contact" size="md">Work with me</Link>
       </div>
     </div>
   </header>
