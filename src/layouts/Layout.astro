@@ -18,8 +18,8 @@ const resolvedImageWithDomain = new URL(
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "Tom van Reijn"
-  : "Tom van Reijn | Web development";
+  ? title + " | " + "DigitalnomadsBCN"
+  : "DigitalnomadsBCN";
 ---
 
 <!DOCTYPE html>
@@ -33,24 +33,14 @@ const makeTitle = title
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Websites, e-commerce and ai powered web applications. Built with react.js, next.js, three.js and tailwind.css."
+      description="Websites, e-commerce and ai powered web applications. Built with react.js, next.js and tailwind.css."
       canonical={canonicalURL}
       twitter={{
         creator: "@surjithctly",
         site: "@web3templates",
         card: "summary_large_image",
       }}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: `Astroship - Starter Template for Astro`,
-          image: resolvedImageWithDomain,
-        },
-        image: {
-          alt: "Astroship Homepage Screenshot",
-        },
-      }}
+     
     />
   </head>
   <body>
